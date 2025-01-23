@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MPAI Spring MVC Demo</title>
+</head>
+<body>
+<p>This is MPAI Spring MVC Demo <b>Add/Edit Course</b> page</p>
+<form th:action="@{/courses}" method="post">
+    <input type="hidden" name="courseId" th:value="${
+    course != null? course.id : null}"/>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                <label for="courseName">Name</label>
+                <input id="courseName" name="name" type="text"
+                th:value="${course!=null? course.name: ''}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="courseTrainer">Trainer</label>
+                <input id="courseTrainer" name="trainer"
+                       type="text" th:value="${course !=null?
+                       course.trainer:''}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="courseDescription">Description</label>
+                <input id="courseDescription" name="description"
+                       type="text" th:value="${
+                       course!=null?course.description: ''}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Save"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

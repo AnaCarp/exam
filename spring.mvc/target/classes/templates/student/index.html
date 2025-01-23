@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MPAI Spring MVC Demo</title>
+</head>
+<body>
+<p>This is MPAI Spring MVC Demo <b>Home</b> page</p>
+
+<b>All registered students: </b>
+
+<ul>
+    <li style="display: flex; align-items: center; margin-bottom: 20px;">
+        Student ID - name - age demo 1
+        <button style="margin: 5px;" type="submit"><i>Delete</i></button>
+        <button style="margin: 5px;" type="submit"><i>Edit</i></button>
+    </li>
+
+    <li style="display: flex; align-items: center; margin-bottom: 20px;">
+        Student ID - name - age demo 1
+        <button style="margin: 5px;" type="submit"><i>Delete</i></button>
+        <button style="margin: 5px;" type="submit"><i>Edit</i></button>
+    </li>
+</ul>
+
+<a th:href="@{/students/add}">Add a new student</a>
+</body>
+</html>

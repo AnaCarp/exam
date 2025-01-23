@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MPAI Spring MVC Demo</title>
+</head>
+
+<body>
+<p>This is MPAI Spring MVC Demo <b>Student enroll</b> page</p>
+
+<form th:action="@{/courses/1/students/enroll}" method="post">
+    <label for="studentId">
+        <b>What is the student ID that you want to enroll?</b>
+    </label>
+    <input id="studentId" name="studentId" type="number"/>
+    <input type="submit" value="Save">
+</form>
+
+<p>Available students:</p>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Student name demo 1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Student name demo 2</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

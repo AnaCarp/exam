@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MPAI Spring MVC Demo</title>
+</head>
+<body>
+<p>This is MPAI Spring MVC Demo <b>Courses</b> page</p>
+
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Trainer
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${courses}">
+        <td>
+            <form th:action="@{'/courses/'+${course.id}+'/edit'}"
+                  method="get">
+                <button type="submit"><i>Edit</i></button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/courses/'+${course.id}
+            +'/remove'}" method="post">
+                <button type="submit"><i>Remove</i></button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/courses/'+${course.id}+'/students/enroll'}" method="get">
+                <button type="submit"><i>Enroll student</i></button>
+            </form>
+
+        </td>
+        <td th:text="${course.id}">Demo Id 1</td>
+        <td th:text="${course.name}">Demo Name 1</td>
+        <td th:text="${course.trainer}">Demo Trainer 1</td>
+        <td th:text="${course.description}">Demo Description 1</td>
+        <td>
+            <ul>
+                <li th:each="student:${course.students}"
+                    style="display:flex; align-items: center; margin-bottom: 10px;">
+                    <span th:text="${student.name}">Student demo name 1</span>
+                    <form method="post" th:action="@{'/courses/'+
+                    ${course.id}+'/students/'+${student.id}+'/unenroll'}">
+
+                        <button type="submit" style="margin: 10px">X</button>
+                    </form>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/courses/add}"><i>Add a new course</i></a>
+</body>
+</html>
